@@ -70,7 +70,6 @@ class AppContainer extends HTMLElement {
 							<input type="text" name="title" placeholder="Title" required>
 							<input type="text" name="author" placeholder="Author" required>
 							<input type="text" name="album" placeholder="Album" required>
-							<input type="text" name="dateAdded" placeholder="Date Added" required>
 							<input type="text" name="duration" placeholder="Duration" required>
 							<input type="text" name="image" placeholder="Image" required>
 							<input type="submit" id="save-song" value="Save"/>

@@ -42,22 +42,33 @@ export default class Music extends HTMLElement {
 	}
 
 	connectedCallback() {
+		const currentDate = new Date();
+		const day = currentDate.getDate();
+		const month = currentDate.toLocaleString('default', { month: 'long' });
+		const year = currentDate.getFullYear();
+		const formattedDate = `${day} / ${month} / ${year}`;
+		this.date_added = formattedDate;
+
 		this.render();
 	}
 
 	render() {
 		if (this.shadowRoot) {
 			this.shadowRoot.innerHTML = `<section>
-  <image
-   src='${this.image}'></image>
-  <b></b><p>${this.ttitle}</p>
-<p>${this.autor}</p>
-<p>Album:${this.album}</p>
-<p>Date added: ${this.date_added}</p>
-<p>duration:${this.duration}</p>
-  </section>
+			<div>
+			<img src="${this.image}">
+			<b>${this.ttitle}</b>
+			<p>${this.autor}</p>
+			<p>Album: ${this.album}</p>
+			<p>Date added: ${this.date_added}</p>
+			<p>Duration: ${this.duration}</p>
+	</div>
+	</section>
 `;
 		}
+		const cssSongs = this.ownerDocument.createElement('style');
+		cssSongs.innerHTML = styles;
+		this.shadowRoot?.appendChild(cssSongs);
 	}
 }
 
